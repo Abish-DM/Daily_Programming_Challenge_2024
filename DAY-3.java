@@ -11,16 +11,19 @@ class Day3
             ar[i]=sc.nextInt();
         }
         System.out.print("Duplicate number is:");
-        for(int i=0;i<n;i++)
+        int i=0;
+        while(i<n)
         {
             for(int j=i+1;j<n;j++)
             {
                 if(ar[i]==ar[j])
                 {
                   System.out.println(ar[i]);
+                  i=n-1;
+                  break;
                 }
-                break;
             }
+            i++;
         }
     }
 }
