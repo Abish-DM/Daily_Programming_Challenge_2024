@@ -1,0 +1,54 @@
+#include <iostream>
+using namespace std;
+
+int main(){
+    int n,m;
+    cout<<"Enter the size of array-1 : ";
+    cin>>n;
+    cout<<"Enter the size of array-2 : ";
+    cin>>m;
+    int* ar=new int[n];
+    int* arr=new int[m];
+    cout<<"\nEnter the elements of array-1 \n";
+    for(int i=0;i<n;i++){
+        cin>>ar[i];
+    }
+    cout<<"\nEnter the elements of array-2 \n";
+    for(int i=0;i<n;i++){
+        cin>>arr[i];
+    }
+    int b=n>m?n:m;
+    for(int i=0;i<n;i++){
+        for(int j=0;j<n-1;j++){
+            if(i!=j && ar[j]>ar[j+1]){
+                int temp=ar[j];
+                ar[j]=ar[j+1];
+                ar[j+1]=temp;
+            }
+        }
+        for(int k=0;k<m;k++){
+            if(ar[i]>arr[k]){
+                int temp=arr[k];
+                arr[k]=ar[i];
+                ar[i]=temp;
+            }
+        }
+    }
+    
+    for(int i=0;i<n;i++){
+        cout<<ar[i]<<" ";
+    }
+    for(int i=0;i<m;i++){
+        for(int j=0;j<m;j++){
+           if(i!=j && arr[i]<arr[j]){
+               int temp = arr[i];
+               arr[i]=arr[j];
+               arr[j]=temp;
+           }
+        }
+    }
+    cout<<"\n";
+    for(int i=0;i<m;i++){
+        cout<<arr[i]<<" ";
+    }
+}
